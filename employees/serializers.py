@@ -9,7 +9,6 @@ logger = logging.getLogger(__name__)
 
 
 class EmployeeBaseSerializer(serializers.ModelSerializer):
-    """Базовый сериализатор для сотрудников"""
 
     class Meta:
         model = Employee
@@ -25,7 +24,6 @@ class EmployeeBaseSerializer(serializers.ModelSerializer):
 
 
 class EmployeeCreateSerializer(serializers.ModelSerializer):
-    """Сериализатор для создания сотрудника"""
 
     class Meta:
         model = Employee
@@ -33,7 +31,6 @@ class EmployeeCreateSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'created_at']
 
     def validate_full_name(self, value):
-        """Валидация полного имени"""
         if value:
             value = value.strip()
         if not value:
@@ -45,7 +42,6 @@ class EmployeeCreateSerializer(serializers.ModelSerializer):
         return value
 
     def validate_position(self, value):
-        """Валидация должности"""
         if value:
             value = value.strip()
         if not value:
@@ -66,7 +62,6 @@ class EmployeeCreateSerializer(serializers.ModelSerializer):
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
-    """Сериализатор для отображения сотрудника"""
 
     class Meta:
         model = Employee

@@ -1,6 +1,5 @@
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.utils import timezone
 
 
 class Employee(models.Model):
@@ -45,7 +44,6 @@ class Employee(models.Model):
         return f'{self.full_name} - {self.position}'
 
     def clean(self):
-        """Валидация модели"""
         if self.full_name:
             self.full_name = self.full_name.strip()
 
